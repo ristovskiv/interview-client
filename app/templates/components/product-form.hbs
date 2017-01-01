@@ -1,0 +1,19 @@
+<form {{action 'saveProduct' on='submit'}}>
+  {{#each product.errors as |error|}}
+    {{#unless (is-state error.attribute)}}
+      <p>{{error.attribute}} {{error.message}}</p>
+    {{/unless}}
+  {{/each}}
+  <div>
+    <label for="name">Name</label>
+    {{input type='text' id='name' value=product.name}}
+  </div>
+  <div>
+    <label for="initial-state">Initial State</label>
+    {{input type="text" id="initial-state" value=product.initialState}}
+  </div>
+
+  <div>
+    <button type="submit">Save</button>
+  </div>
+</form>
