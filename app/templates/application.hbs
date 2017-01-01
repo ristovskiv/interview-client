@@ -2,6 +2,7 @@
   {{#if session.isAuthenticated }}
     <a href='#'{{action 'invalidateSession'}}>Logout</a>
     {{#link-to 'products'}}Products{{/link-to}}
+    {{#link-to 'products.new'}}New{{/link-to}}
   {{else}}
     {{#link-to 'login'}}Login{{/link-to}}
   {{/if}}
