@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('login');
   this.route('products', function() {
     this.route('new');
+    this.route('edit', { path: '/:product_id/edit'});
   });
 });
 
