@@ -7,6 +7,11 @@
     {{#link-to 'login'}}Login{{/link-to}}
   {{/if}}
 </div>
+<div class="flash-messages">
+  {{#each flashMessages.queue as |flash|}}
+    {{flash-message flash=flash}}
+  {{/each}}
+</div>
 <div class="main">
   {{outlet}}
 </div>
