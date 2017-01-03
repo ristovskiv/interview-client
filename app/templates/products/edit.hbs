@@ -16,7 +16,12 @@
           <td>{{event.name}}</td>
           <td>{{event.from}}</td>
           <td>{{event.to}}</td>
-          <td><button {{action "deleteEvent" event}}>Delete</button></td>
+          <td>
+            <button {{action "deleteEvent" event}}>Delete</button>
+            {{#each event.errors as |error|}}
+              <span>{{error.attribute}} {{error.message}}</span>
+            {{/each}}
+          </td>
         </tr>
       {{/unless}}
     {{/each}}

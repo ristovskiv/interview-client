@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
       );
     },
     deleteEvent(event){
-      console.log(event);
+      event.destroyRecord();
     },
     createEvent(){
       this.get('newEvent').save().then(
