@@ -11,12 +11,38 @@
   </thead>
   <tbody>
     {{#each model.events as |event|}}
-      <tr>
-        <td>{{event.name}}</td>
-        <td>{{event.from}}</td>
-        <td>{{event.to}}</td>
-        <td><button {{action "deleteEvent" event}}>Delete</button></td>
-      </tr>
+      {{#unless event.isNew}}
+        <tr>
+          <td>{{event.name}}</td>
+          <td>{{event.from}}</td>
+          <td>{{event.to}}</td>
+          <td><button {{action "deleteEvent" event}}>Delete</button></td>
+        </tr>
+      {{/unless}}
     {{/each}}
   </tbody>
 </table>
+
+<h4>Create Events</h4>
+
+<form {{action 'createEvent' on='submit'}}>
+  {{#each newEvent.errors as |error|}}
+    <p>{{error.attribute}} {{error.message}}</p>
+  {{/each}}
+  <div>
+    <label for="event-name">Name</label>
+    {{input type='text' id='event-name' value=newEvent.name}}
+  </div>
+  <div>
+    <label for="event-from">From State</label>
+    {{input type="text" id="event-from" value=newEvent.from}}
+  </div>
+  <div>
+    <label for="event-to">To State</label>
+    {{input type="text" id="event-to" value=newEvent.to}}
+  </div>
+  <p>{{newEvent.product.name}}</p>
+  <div>
+    <button type="submit">Save</button>
+  </div>
+</form>
