@@ -1,1 +1,22 @@
 {{product-form product=model saveProduct=(action 'updateProduct')}}
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>From State</th>
+      <th>To State</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model.events as |event|}}
+      <tr>
+        <td>{{event.name}}</td>
+        <td>{{event.from}}</td>
+        <td>{{event.to}}</td>
+        <td><button {{action "deleteEvent" event}}>Delete</button></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

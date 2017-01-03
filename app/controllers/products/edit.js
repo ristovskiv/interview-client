@@ -14,5 +14,8 @@ export default Ember.Controller.extend({
         }
       );
     },
+    deleteEvent(event){
+      console.log(event);
+    }
   }
 });

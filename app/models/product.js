@@ -4,5 +4,6 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   state: DS.attr('string'),
   initialState: DS.attr('string'),
-  stateEvents: DS.attr()
+  stateEvents: DS.attr(),
+  events: DS.hasMany('event')
 });
