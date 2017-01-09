@@ -1,3 +1,8 @@
 {{#each model as |product|}}
-  <p>{{product.name}} | {{product.state}} |{{#link-to 'products.edit' product }}Edit{{/link-to}}</p>
+  <p>
+    {{product.name}} | {{product.state}} | {{#link-to 'products.edit' product }}Edit{{/link-to}} |
+    {{#each product.stateEvents as |stateEvent|}}
+      <button {{ action "transitionState" product stateEvent }}>{{stateEvent}}</button>
+    {{/each}}
+  </p>
 {{/each}}
