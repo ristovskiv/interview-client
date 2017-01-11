@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
           let product_attrs = response.data.attributes;
           product.setProperties({
             state: product_attrs.state,
-            stateEvents: product_attrs.stateEvents
+            stateEvents: product_attrs.state_events
           });
         }
       );
