@@ -19,6 +19,12 @@ export default Ember.Controller.extend({
       event.destroyRecord();
     },
     createEvent(){
+      this.get('model').get('events').forEach(function(event){
+        if(!Ember.isEmpty(event.get('errors'))){
+          event.rollbackAttributes();
+        }
+      });
+
       this.get('newEvent').save().then(
         ()=>{
           let newEvent = this.get('store').createRecord('event', {product: this.get("model")});
